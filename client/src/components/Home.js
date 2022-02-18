@@ -21,10 +21,6 @@ function Home() {
             </div>
           </div>
         </div>
-        <h1>Features</h1>
-        <h1>Features</h1>
-        <h1>Features</h1>
-        <h1>Features</h1>
       </div>
     );
 }

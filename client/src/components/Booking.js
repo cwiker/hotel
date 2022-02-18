@@ -2,8 +2,7 @@ import { useState } from "react"
 import Edit from "./Edit"
 
 function Booking({booking, onUpdate, onDelete}) {
-    const {room, checkin_date, checkout_date, guest} = booking
-    console.log(booking)
+    const {room, checkIn_date, checkOut_date, guest} = booking
     const [edit, setEdit] = useState(false)
 
     function handleDelete() {
@@ -17,10 +16,9 @@ function Booking({booking, onUpdate, onDelete}) {
         <div>
             <img src={room.image} alt={room.name} />
             <span>{room.name}</span>
-            <span>{checkin_date}</span>
-            <span>{checkout_date}</span>
-            <span>{guest}</span><br/>
-            <span>Total</span>
+            <span>{checkIn_date}</span>
+            <span>{checkOut_date}</span>
+            <span>{guest}</span>
             <button onClick={handleDelete}>Delete</button>
             <button onClick={()=>{setEdit(true)}}>Edit</button>
                 {edit && <Edit setEdit={setEdit} booking={booking} onUpdate={onUpdate} />}

@@ -43,45 +43,37 @@ function FormBooking({addBooking, currentUser, room}) {
     }
     return (
         <div className="fb-container">
-            <h4>Hi, {currentUser.username}</h4>
-            <h3>Booking for {room.name}</h3>
-            <img className="fb-img" src={room.image} alt="room" />
-            <form className="fb-form" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
+                <p>Hi, {currentUser.username}</p>
+                <h5>Booking for {room.name}</h5>
                 <input
-                    className="fb-input"
                     type="date"
                     name="inDate"
                     value={inDate}
                     placeholder="yyyy/mm/dd"
                     onChange={(e) => setInDate(e.target.value)}
                 />
-                <br/>
                 <input
-                    className="fb-input"
                     type="date"
                     name="outDate"
                     value={outDate}
                     placeholder="yyyy/mm/dd"
                     onChange={(e) => setOutDate(e.target.value)}
                 />
-                <br/>
                 <input
-                    className="fb-input"
                     type="number"
                     name="guest"
                     value={guest}
                     placeholder="Guest number"
                     onChange={(e) => setGuest(e.target.value)}
                 />
-                {/* <p>num of nigth(s)</p> */}
-                <p>Total: {room.total}</p>
-                <div className="fb-error-div">
-                    {errors.map((err) => (
-                        <li className="fb-error" key={err}>{err}</li>
-                    ))}
-                </div>
-                <Link to={path}><button className="fb-button">Cancel</button></Link>
-                <button className="fb-button" type="submit">Confirm</button>
+                <p>num of nigth(s)</p>
+                <p>Total num*price</p>
+                {errors.map((err) => (
+                    <li className="text-red-600" key={err}>{err}</li>
+                ))}
+                <button><Link to={path}>Cancel</Link></button>
+                <button type="submit">Confirm</button>
             </form>
         </div>
     )

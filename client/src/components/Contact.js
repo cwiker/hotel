@@ -1,55 +1,71 @@
-import React, {useState} from 'react'
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import "./contact.css"
 
-
 function Contact() {
+  const formRef = useRef()
+  const [done, setDone] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs
+        .sendForm(
+            'service_l7q1lvs', 
+            'template_gcxr568', 
+            formRef.current, 
+            'user_yIgHHoYQdioaziicX5lHF'
+        )
+        .then((result) => {
+            console.log(result.text);
+            setDone(true)
+        }, (error) => {
+            console.log(error.text);
+    });
+  };
+
   return (
           <div className="c-container">
               <div className="c-div">
                 <p className="c-para">If you would like to know more about our hotel or any questions, please feel free to contact us by leaving your information in the form below. Our staff will contact you back asap. Thank you for your support. </p>
               </div>
               <h1>Contact Us</h1>
-              <form className="c-form">
+              <form ref={formRef} onSubmit={handleSubmit} className="c-form">
                 <input
                   className="c-input"
-                  id="name"
                   type="text"
                   placeholder="Name"
-                  name="name"
+                  name="user_name"
                 />
                 <br />
                 <input
                   className="c-input"
-                  id="subject"
                   type="text"
                   placeholder="Subject"
-                  name="subject"
+                  name="user_subject"
                 />
                 <br />
                 <input
                   className="c-input"
-                  id="email"
                   type="text"
                   placeholder="Email"
-                  name="email"
+                  name="user_email"
                 />
                 <br />
                 <textarea 
                   className="c-textarea"
-                  id="message"
                   type="text"
                   placeholder="Message"
                   name="message"
                 />
                 <br />
-                <button className="c-button" type="submit">
+                <button className="c-button">
                   Submit
-                </button>
+                </button><br/>
+                {done && "Thank you. We will get back to you asap."}
               </form>
             </div>
           );
 }
-
 export default Contact
 
 // function Contact() {

@@ -1,0 +1,27 @@
+.e-form{
+    margin: 10px;
+}
+
+.e-input{
+    width: 150px;
+    height: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 10px 7px;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.e-button{
+    margin: 5px;
+    width: 70px;
+    background-color: white;
+    border-style: solid black 1px;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+:hover.e-button{
+    background-color: rgb(90, 89, 89);
+    color: white;
+}

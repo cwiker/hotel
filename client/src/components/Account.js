@@ -24,7 +24,7 @@ function Account({currentUser, bookings, setBookings}) {
         <div className="ac-container">
             {currentUser? (
                 <div>
-                    <p>Hello, {currentUser.username}</p>
+                    <h4>Hi, {currentUser.username}</h4>
                     <h1>Your Booking</h1>
                     {bookings.map((booking)=>(
                         <Booking 
@@ -36,7 +36,7 @@ function Account({currentUser, bookings, setBookings}) {
                 ))}   
                 </div>  
             ):(
-                <p>Please <Link to="/login">login</Link> or <Link to="/signup">signup</Link></p>
+                <p>Please <Link className="ac-link" to="/login">login</Link> or <Link className="ac-link" to="/signup">signup</Link></p>
             )}
             
         </div>

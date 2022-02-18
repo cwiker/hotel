@@ -14,6 +14,8 @@ function Routing({currentUser, setCurrentUser}) {
     const [rooms, setRooms] = useState([])
     const [room, setRoom] = useState({})
     const [bookings, setBookings] = useState([])
+    const [roomFilter, setRoomFilter] = useState("All")
+    const [guestFilter, setGuestFilter] = useState("all")
 
     useEffect(()=>{
         fetch("/rooms")
@@ -31,11 +33,40 @@ function Routing({currentUser, setCurrentUser}) {
         setBookings([...bookings, newBooking])
     }
 
+    const display = rooms
+        .filter((room) => {
+            if (roomFilter === "All"){
+                return true;
+            }else{
+                return room.r_type === roomFilter;
+            } 
+        })
+        // .filter((room) => {
+        //     if (guestFilter === "all"){
+        //         return true;
+        //     }else{
+        //         return room.capacity === guestFilter;
+        //     } 
+        // })
+
+    function handleClear(){
+        setRoomFilter("All")
+        setGuestFilter("all")
+    }
+    
+    function handleRoomFilter(event) {
+        setRoomFilter(event.target.value);
+    }
+
+    function handleGuestFilter(event) {
+        setGuestFilter(event.target.value);
+    }
+
     return (
         <div>
             <Routes>
                 <Route path="/" element={<Home/>} />
-                <Route path="/rooms" element={<Room rooms={rooms} />} />
+                <Route path="/rooms" element={<Room rooms={display} onClear={handleClear} fillRoom={handleRoomFilter} fillGuest={handleGuestFilter} />} />
                 <Route path="/contact" element={<Contact/>} />
                 <Route path="/account" element={<Account currentUser={currentUser} bookings={bookings} setBookings={setBookings} />} />
                 <Route path="/rooms/:id" element={<RoomDetail currentUser={currentUser} room={room} handleAddbooking={handleAddbooking} setRoom={setRoom} />} />
