@@ -1,0 +1,32 @@
+.f-div{
+    padding-top: 30px;
+}
+
+.f-input{
+    width: 250px;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 10px 0px;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.f-btn{
+    margin: 5px;
+    width: 60px;
+    background-color: white;
+    border-style: solid black 1px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+:hover.f-btn{
+    background-color: rgb(90, 89, 89);
+    color: white;
+}
+
+@media screen  and (max-width:480px){
+    .f-input{
+        width: 150px;
+    }
+}

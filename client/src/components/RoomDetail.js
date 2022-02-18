@@ -7,6 +7,8 @@ function RoomDetail({currentUser, room, setRoom, handleAddbooking}) {
     const { name, r_type, price, capacity, pets, breakfast, description, image  } = room
     const {id} = useParams();
     const bookingPath = currentUser ? `/${id}/bookings/new` : "/login"
+
+    // localStorage.setItem("roomID",id)
     
     useEffect(()=>{
         fetch(`/rooms/${id}`)

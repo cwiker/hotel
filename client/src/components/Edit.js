@@ -1,8 +1,9 @@
 import { useState } from "react"
+import "./edit.css"
 
 function Edit({setEdit, booking, onUpdate}) {
-    const [inDate, setInDate] = useState(booking.checkinDate)
-    const [outDate, setOutDate] = useState(booking.checkoutDate)
+    const [inDate, setInDate] = useState(booking.checkin_date)
+    const [outDate, setOutDate] = useState(booking.checkout_date)
     const [guest, setGuest] = useState(booking.guest)
     const [errors, setErrors] = useState([])
 
@@ -38,8 +39,9 @@ function Edit({setEdit, booking, onUpdate}) {
     }
     return (
         <div>
-            <form onSubmit={handleFormUpdate}>
+            <form className="e-form" onSubmit={handleFormUpdate}>
             <input
+                    className="e-input"
                     type="date"
                     name="inDate"
                     value={inDate}
@@ -47,6 +49,7 @@ function Edit({setEdit, booking, onUpdate}) {
                     onChange={(e) => setInDate(e.target.value)}
                 />
                 <input
+                    className="e-input"
                     type="date"
                     name="outDate"
                     value={outDate}
@@ -54,17 +57,19 @@ function Edit({setEdit, booking, onUpdate}) {
                     onChange={(e) => setOutDate(e.target.value)}
                 />
                 <input
+                    className="e-input"
                     type="number"
                     name="guest"
                     value={guest}
                     placeholder="Guest number"
                     onChange={(e) => setGuest(e.target.value)}
                 />
-                {errors.map((err) => (
+                {/* {errors.map((err) => (
                     <li className="text-red-600" key={err}>{err}</li>
-                ))}
-                <button onClick={()=>setEdit(false)} >Cancel</button>
-                <button type="submit">Confirm</button>
+                ))} */}
+                <br/>
+                <button className="e-button" onClick={()=>setEdit(false)} >Cancel</button>
+                <button className="e-button" type="submit">Confirm</button>
             </form>
         </div>
     )

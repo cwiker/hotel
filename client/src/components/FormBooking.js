@@ -12,6 +12,7 @@ function FormBooking({addBooking, currentUser, room}) {
     const params = useParams()
     const roomID = params.id
     console.log(roomID)
+    // const storeRoomID = localStorage.getItem("roomID")
 
     function handleSubmit(e){
         e.preventDefault();
@@ -52,7 +53,6 @@ function FormBooking({addBooking, currentUser, room}) {
                     type="date"
                     name="inDate"
                     value={inDate}
-                    placeholder="yyyy/mm/dd"
                     onChange={(e) => setInDate(e.target.value)}
                 />
                 <br/>
@@ -61,7 +61,6 @@ function FormBooking({addBooking, currentUser, room}) {
                     type="date"
                     name="outDate"
                     value={outDate}
-                    placeholder="yyyy/mm/dd"
                     onChange={(e) => setOutDate(e.target.value)}
                 />
                 <br/>
@@ -73,8 +72,11 @@ function FormBooking({addBooking, currentUser, room}) {
                     placeholder="Guest number"
                     onChange={(e) => setGuest(e.target.value)}
                 />
+
                 {/* <p>num of nigth(s)</p> */}
                 <p>Total: {room.total}</p>
+
+
                 <div className="fb-error-div">
                     {errors.map((err) => (
                         <li className="fb-error" key={err}>{err}</li>

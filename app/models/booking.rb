@@ -3,6 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :room
 
   validates :user_id, :room_id, :checkin_date, :checkout_date, :guest, presence: true
+
   #want to calculate price based on num of days
   # def stay
   #   binding.pry
@@ -11,6 +12,10 @@ class Booking < ApplicationRecord
   # end
 
   def stay
+
+  
+   def stay
+
     #binding.pry
     t = checkout_date - checkin_date
     t/60/60/24
@@ -19,7 +24,5 @@ class Booking < ApplicationRecord
   def total
     self.stay * room.price
   end
-  
-  
 
 end

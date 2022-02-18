@@ -1,4 +1,14 @@
 .ac-container{
     width: 100%;
     padding-top: 80px;
+    padding-bottom: 30px;
+}
+
+.ac-link{
+    font-style: italic;
+    color: black;
+}
+
+:hover.ac-link{
+    color: rgb(179, 141, 38);
 }
