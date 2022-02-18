@@ -72,6 +72,11 @@ function FormBooking({addBooking, currentUser, room}) {
                     placeholder="Guest number"
                     onChange={(e) => setGuest(e.target.value)}
                 />
+
+                {/* <p>num of nigth(s)</p> */}
+                <p>Total: {room.total}</p>
+
+
                 <div className="fb-error-div">
                     {errors.map((err) => (
                         <li className="fb-error" key={err}>{err}</li>

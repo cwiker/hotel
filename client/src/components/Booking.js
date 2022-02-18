@@ -15,6 +15,18 @@ function Booking({booking, onUpdate, onDelete}) {
     }
 
     return (
+
+        <div>
+            <img src={room.image} alt={room.name} />
+            <span>{room.name}</span>
+            <span>{checkin_date}</span>
+            <span>{checkout_date}</span>
+            <span>{guest}</span><br/>
+            <span>Total</span>
+            <button onClick={handleDelete}>Delete</button>
+            <button onClick={()=>{setEdit(true)}}>Edit</button>
+                {edit && <Edit setEdit={setEdit} booking={booking} onUpdate={onUpdate} />}
+
         <div className="b-main">
             <div className="b-div">
                 <div className="b-desc">
@@ -36,6 +48,7 @@ function Booking({booking, onUpdate, onDelete}) {
                 </div>
                 <hr/>
             </div>
+
         </div>
     )
 }
