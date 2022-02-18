@@ -19,7 +19,8 @@ function Booking({booking, onUpdate, onDelete}) {
             <span>{room.name}</span>
             <span>{checkin_date}</span>
             <span>{checkout_date}</span>
-            <span>{guest}</span>
+            <span>{guest}</span><br/>
+            <span>Total</span>
             <button onClick={handleDelete}>Delete</button>
             <button onClick={()=>{setEdit(true)}}>Edit</button>
                 {edit && <Edit setEdit={setEdit} booking={booking} onUpdate={onUpdate} />}
